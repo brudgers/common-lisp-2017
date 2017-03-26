@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-26 Sun 12:47 -->
+<!-- 2017-03-26 Sun 12:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -232,21 +232,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8f725a8">1. Symbols, Packages, 'Packages', and Systems</a></li>
-<li><a href="#org26eddf4">2. The Lisp Machine</a></li>
-<li><a href="#org8a2209f">3. ~/common-lisp</a></li>
-<li><a href="#orgcfefe0b">4. ASDF</a></li>
-<li><a href="#org6cbab7d">5. Quicklisp</a>
+<li><a href="#org9081a66">1. Symbols, Packages, 'Packages', and Systems</a></li>
+<li><a href="#org3badee0">2. The Lisp Machine</a></li>
+<li><a href="#org2e6d0e8">3. ~/common-lisp</a></li>
+<li><a href="#org990d259">4. ASDF</a></li>
+<li><a href="#org12a1004">5. Quicklisp</a>
 <ul>
-<li><a href="#orge2be0db">5.1. Installation</a></li>
-<li><a href="#orgf300e04">5.2. System Repository</a></li>
+<li><a href="#org9dbb014">5.1. Installation</a></li>
+<li><a href="#orgcd5bc30">5.2. System Repository</a></li>
 </ul>
 </li>
-<li><a href="#org5f8d01a">6. Packages</a></li>
-<li><a href="#org1970ac0">7. SBCL</a></li>
-<li><a href="#org2cd9483">8. Emacs</a></li>
-<li><a href="#org063016a">9. Testing</a></li>
-<li><a href="#org860d756">10. Other Lisps</a></li>
+<li><a href="#org005ebdc">6. Packages</a></li>
+<li><a href="#orgce42d32">7. SBCL</a></li>
+<li><a href="#org6b41aa7">8. Emacs</a></li>
+<li><a href="#orgc39f03f">9. Testing</a></li>
+<li><a href="#orgd53848f">10. Other Lisps</a></li>
 </ul>
 </div>
 </div>
@@ -254,20 +254,20 @@ for the JavaScript code in this tag.
 #+Title Just another Love Song: Common Lisp in 2017
 </p>
 
-<div id="outline-container-org8f725a8" class="outline-2">
-<h2 id="org8f725a8"><span class="section-number-2">1</span> Symbols, Packages, 'Packages', and Systems</h2>
+<div id="outline-container-org9081a66" class="outline-2">
+<h2 id="org9081a66"><span class="section-number-2">1</span> Symbols, Packages, 'Packages', and Systems</h2>
 </div>
-<div id="outline-container-org26eddf4" class="outline-2">
-<h2 id="org26eddf4"><span class="section-number-2">2</span> The Lisp Machine</h2>
+<div id="outline-container-org3badee0" class="outline-2">
+<h2 id="org3badee0"><span class="section-number-2">2</span> The Lisp Machine</h2>
 </div>
-<div id="outline-container-org8a2209f" class="outline-2">
-<h2 id="org8a2209f"><span class="section-number-2">3</span> ~/common-lisp</h2>
+<div id="outline-container-org2e6d0e8" class="outline-2">
+<h2 id="org2e6d0e8"><span class="section-number-2">3</span> ~/common-lisp</h2>
 </div>
-<div id="outline-container-orgcfefe0b" class="outline-2">
-<h2 id="orgcfefe0b"><span class="section-number-2">4</span> ASDF</h2>
+<div id="outline-container-org990d259" class="outline-2">
+<h2 id="org990d259"><span class="section-number-2">4</span> ASDF</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org43cbef8">(in-package :kludgecode)
+<pre class="src src-lisp" id="orgfbb226b">(in-package :kludgecode)
 (def use-system (system-keyword)
   "Loads a system if locally available, otherwise trys to fetch it via quicklisp"
   (if (asdf:system-registered-p system-keyword)
@@ -281,11 +281,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org6cbab7d" class="outline-2">
-<h2 id="org6cbab7d"><span class="section-number-2">5</span> Quicklisp</h2>
+<div id="outline-container-org12a1004" class="outline-2">
+<h2 id="org12a1004"><span class="section-number-2">5</span> Quicklisp</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orge2be0db" class="outline-3">
-<h3 id="orge2be0db"><span class="section-number-3">5.1</span> Installation</h3>
+</div><div id="outline-container-org9dbb014" class="outline-3">
+<h3 id="org9dbb014"><span class="section-number-3">5.1</span> Installation</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Quicklisp is a package manager for common Lispavailable at <a href="https://www.quicklisp.org/beta/"><a href="https://www.quicklisp.org/beta/">https://www.quicklisp.org/beta/</a></a>.
@@ -305,8 +305,8 @@ gpg --verify quicklisp.lisp.asc quicklisp.lisp
 </div>
 </div>
 </div>
-<div id="outline-container-orgf300e04" class="outline-3">
-<h3 id="orgf300e04"><span class="section-number-3">5.2</span> System Repository</h3>
+<div id="outline-container-orgcd5bc30" class="outline-3">
+<h3 id="orgcd5bc30"><span class="section-number-3">5.2</span> System Repository</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 <a href="https://www.quicklisp.org/beta/releases.html">https://www.quicklisp.org/beta/releases.html</a>
@@ -315,35 +315,35 @@ gpg --verify quicklisp.lisp.asc quicklisp.lisp
 </div>
 </div>
 
-<div id="outline-container-org5f8d01a" class="outline-2">
-<h2 id="org5f8d01a"><span class="section-number-2">6</span> Packages</h2>
+<div id="outline-container-org005ebdc" class="outline-2">
+<h2 id="org005ebdc"><span class="section-number-2">6</span> Packages</h2>
 </div>
-<div id="outline-container-org1970ac0" class="outline-2">
-<h2 id="org1970ac0"><span class="section-number-2">7</span> SBCL</h2>
+<div id="outline-container-orgce42d32" class="outline-2">
+<h2 id="orgce42d32"><span class="section-number-2">7</span> SBCL</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 SBCL because it is the most straight forward from an open source perspective.
 </p>
 </div>
 </div>
-<div id="outline-container-org2cd9483" class="outline-2">
-<h2 id="org2cd9483"><span class="section-number-2">8</span> Emacs</h2>
+<div id="outline-container-org6b41aa7" class="outline-2">
+<h2 id="org6b41aa7"><span class="section-number-2">8</span> Emacs</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Emacs Lisp is a way of editing text.
 </p>
 </div>
 </div>
-<div id="outline-container-org063016a" class="outline-2">
-<h2 id="org063016a"><span class="section-number-2">9</span> Testing</h2>
+<div id="outline-container-orgc39f03f" class="outline-2">
+<h2 id="orgc39f03f"><span class="section-number-2">9</span> Testing</h2>
 </div>
-<div id="outline-container-org860d756" class="outline-2">
-<h2 id="org860d756"><span class="section-number-2">10</span> Other Lisps</h2>
+<div id="outline-container-orgd53848f" class="outline-2">
+<h2 id="orgd53848f"><span class="section-number-2">10</span> Other Lisps</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: benrudgers</p>
-<p class="date">Created: 2017-03-26 Sun 12:47</p>
+<p class="date">Created: 2017-03-26 Sun 12:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

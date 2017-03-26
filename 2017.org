@@ -5,7 +5,7 @@
 * ~/common-lisp
 * ASDF
 #+NAME: kludgecode-use-system
-#+BEGIN_SRC lisp
+#+BEGIN_SRC lisp :tangle kludge-use-system.lisp
   (in-package :kludgecode)
   (def use-system (system-keyword)
     "Loads a system if locally available, otherwise trys to fetch it via quicklisp"
