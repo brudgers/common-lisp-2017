@@ -1,9 +1,15 @@
 #+Title Just another Love Song: Common Lisp in 2017
-
+#+OPTIONS: num:nil ^:{}
 * Symbols, Packages, 'Packages', and Systems
+This section will go into terminology regarding multiple file organization in Common Lisp because it is a bit disorienting.
+** Symbols and Packages
+** 'Packages' and Systems
 * The Lisp Machine
+This section will go into the idea of Common Lisp as a way of /using/ a computer rather than a way of /programming/ a computer.
 * ~/common-lisp
+Just put your files there like an *nix'er.
 * ASDF
+ASDF does one thing.
 #+NAME: kludgecode-use-system
 #+BEGIN_SRC lisp :tangle kludge-use-system.lisp
   (in-package :kludgecode)
