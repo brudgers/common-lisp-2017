@@ -1,0 +1,43 @@
+#+Title Just another Love Song: Common Lisp in 2017
+
+* Symbols, Packages, 'Packages', and Systems
+* The Lisp Machine
+* ~/common-lisp
+* ASDF
+#+NAME: kludgecode-use-system
+#+BEGIN_SRC lisp
+  (in-package :kludgecode)
+  (def use-system (system-keyword)
+    "Loads a system if locally available, otherwise trys to fetch it via quicklisp"
+    (if (asdf:system-registered-p system-keyword)
+        (progn
+          (asdf:load-system system-keyword)
+          'asdf-loaded)
+        (progn 
+          (ql:quickload system-keyword)
+          'quickloaded)))
+#+END_SRC
+* Quicklisp
+** Installation 
+Quicklisp is a package manager for common Lispavailable at [[https://www.quicklisp.org/beta/][https://www.quicklisp.org/beta/]].
+#+BEGIN_SRC shell :results none
+  mkdir ~/common-lisp/quicklisp-install
+  cd ~/common-lisp/quicklisp-install
+  curl -O https://beta.quicklisp.org/quicklisp.lisp
+  curl -O https://beta.quicklisp.org/quicklisp.lisp.asc
+  gpg --verify quicklisp.lisp.asc quicklisp.lisp
+#+END_SRC
+
+#+BEGIN_SRC shell :results none
+sbcl --load quicklisp.lisp
+#+END_SRC
+** System Repository
+https://www.quicklisp.org/beta/releases.html
+
+* Packages
+* SBCL
+SBCL because it is the most straight forward from an open source perspective.
+* Emacs
+Emacs Lisp is a way of editing text.
+* Testing
+* Other Lisps
