@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-03-26 Sun 13:02 -->
+<!-- 2017-03-30 Thu 14:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title></title>
@@ -232,70 +232,156 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8f8561d">Symbols, Packages, 'Packages', and Systems</a>
+<li><a href="#orgbb0dace">An RTFM Language</a></li>
+<li><a href="#org744fced">Symbols, Packages, 'Packages', and Systems</a>
 <ul>
-<li><a href="#orgd18df8c">Symbols and Packages</a></li>
-<li><a href="#orga4bb6c2">'Packages' and Systems</a></li>
+<li><a href="#org08ac114">Symbols and Packages</a>
+<ul>
+<li><a href="#org98d52a4">Symbols</a></li>
+<li><a href="#org1b0dad5">Packages</a></li>
 </ul>
 </li>
-<li><a href="#orge7ee159">The Lisp Machine</a></li>
-<li><a href="#org64bf0d9">~/common-lisp</a></li>
-<li><a href="#org657f7a4">ASDF</a></li>
-<li><a href="#orga722a5a">Quicklisp</a>
-<ul>
-<li><a href="#orgbee403b">Installation</a></li>
-<li><a href="#org38ab6f3">System Repository</a></li>
+<li><a href="#org0dd34f9">'Packages' and Systems</a></li>
 </ul>
 </li>
-<li><a href="#orgb5d7de4">Packages</a></li>
-<li><a href="#orge29d252">SBCL</a></li>
-<li><a href="#orgf5699a4">Emacs</a></li>
-<li><a href="#orgf37a3af">Testing</a></li>
-<li><a href="#org38e5dbc">Other Lisps</a></li>
+<li><a href="#org78479cc">The Lisp Machine</a>
+<ul>
+<li><a href="#orga6aecc5">An abstraction over Von Neumann Architecture</a></li>
+</ul>
+</li>
+<li><a href="#org5f8a6af">Opinions</a>
+<ul>
+<li><a href="#org687fc2d">SBCL</a></li>
+<li><a href="#org83077c8">~/common-lisp</a></li>
+<li><a href="#org77ec850">ASDF</a></li>
+<li><a href="#orge79a8d1">Quicklisp</a>
+<ul>
+<li><a href="#org4da9585">Installation</a></li>
+<li><a href="#orgadad1ad">System Repository</a></li>
+</ul>
+</li>
+<li><a href="#org765d032">Emacs</a></li>
+</ul>
+</li>
+<li><a href="#org2decdbd">Testing</a>
+<ul>
+<li><a href="#orgdf19b6c">lisp-unit</a></li>
+</ul>
+</li>
+<li><a href="#org7ccb868">Other Lisps</a></li>
+<li><a href="#org52fecb9">Signposts - Finding the Right Lisp</a></li>
 </ul>
 </div>
 </div>
 <p>
 #+Title Just another Love Song: Common Lisp in 2017
 </p>
-<div id="outline-container-org8f8561d" class="outline-2">
-<h2 id="org8f8561d">Symbols, Packages, 'Packages', and Systems</h2>
-<div class="outline-text-2" id="text-org8f8561d">
+<div id="outline-container-orgbb0dace" class="outline-2">
+<h2 id="orgbb0dace">An RTFM Language</h2>
+<div class="outline-text-2" id="text-orgbb0dace">
+<p>
+There's good news and bad news.
+</p>
+
+<p>
+Googling up blogs and tutorials and questions on StackOverflow works pretty well for some languages like Python and Javascript. Common Lisp is probably not one of them (though I recognize the irony that this text might suggest). In part by the historical necessities of the pre-internet age and in part by historical accident that Common Lisp was primarily designed for professional programmers and not students (Scheme wound up filling part of that role), learning Common Lisp involves reading material that is designed for professional programmers. There are introductory resources like <i>Land of Lisp</i>, but most material is at the "here are some compiler directives" level of engagement.
+</p>
+
+<p>
+Fortunately, Common Lisp is a standard and a description of the language is available online: <a href="https://www.cs.cmu.edu/Groups/AI/html/cltl/cltl2.html">Common Lisp: The Language (2nd Edition)</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org744fced" class="outline-2">
+<h2 id="org744fced">Symbols, Packages, 'Packages', and Systems</h2>
+<div class="outline-text-2" id="text-org744fced">
 <p>
 This section will go into terminology regarding multiple file organization in Common Lisp because it is a bit disorienting.
 </p>
 </div>
-<div id="outline-container-orgd18df8c" class="outline-3">
-<h3 id="orgd18df8c">Symbols and Packages</h3>
+<div id="outline-container-org08ac114" class="outline-3">
+<h3 id="org08ac114">Symbols and Packages</h3>
+<div class="outline-text-3" id="text-org08ac114">
+</div><div id="outline-container-org98d52a4" class="outline-4">
+<h4 id="org98d52a4">Symbols</h4>
+<div class="outline-text-4" id="text-org98d52a4">
+<p>
+In Common Lisp a symbol is not just a name. A symbol is a <a href="http://www.lispworks.com/documentation/lw70/CLHS/Body/t_symbol.htm">compound data structure</a>. It might be useful to think about a symbol as the name of a pointer to a data structure&#x2026;sometimes I think it is useful to think about everything in Common Lisp as a pointer.
+</p>
+
+<p>
+A symbol may be interned or uninterned. An interned symbol is interned because it is interned in a package.
+</p>
 </div>
-<div id="outline-container-orga4bb6c2" class="outline-3">
-<h3 id="orga4bb6c2">'Packages' and Systems</h3>
+</div>
+<div id="outline-container-org1b0dad5" class="outline-4">
+<h4 id="org1b0dad5">Packages</h4>
+<div class="outline-text-4" id="text-org1b0dad5">
+<p>
+A package is a compound data structure that contains symbols.
+</p>
+<blockquote>
+<p>
+Packages are collections of symbols that serve as namespaces. The parser recognizes symbols by looking up character sequences in the current package.
+</p>
+</blockquote>
 </div>
 </div>
-<div id="outline-container-orge7ee159" class="outline-2">
-<h2 id="orge7ee159">The Lisp Machine</h2>
-<div class="outline-text-2" id="text-orge7ee159">
+</div>
+<div id="outline-container-org0dd34f9" class="outline-3">
+<h3 id="org0dd34f9">'Packages' and Systems</h3>
+</div>
+</div>
+<div id="outline-container-org78479cc" class="outline-2">
+<h2 id="org78479cc">The Lisp Machine</h2>
+<div class="outline-text-2" id="text-org78479cc">
 <p>
 This section will go into the idea of Common Lisp as a way of <i>using</i> a computer rather than a way of <i>programming</i> a computer.
 </p>
 </div>
+<div id="outline-container-orga6aecc5" class="outline-3">
+<h3 id="orga6aecc5">An abstraction over Von Neumann Architecture</h3>
 </div>
-<div id="outline-container-org64bf0d9" class="outline-2">
-<h2 id="org64bf0d9">~/common-lisp</h2>
-<div class="outline-text-2" id="text-org64bf0d9">
+</div>
+<div id="outline-container-org5f8a6af" class="outline-2">
+<h2 id="org5f8a6af">Opinions</h2>
+<div class="outline-text-2" id="text-org5f8a6af">
+<p>
+There are many possible permutations of Common Lisp environments [something like <code>O(n!)</code> I think]. This is my snowflake opinion, not for the sake of argument, but for the sake of swimming downstream in the middle of the channel. It is premised on using open source tooling (i.e. not spending any money). 
+</p>
+
+<p>
+There are legitimate reasons to use commercial implementations. There might be legitemate reasons to make choices other than those I describe, but they will tend to increase the probability of swimming against the current.
+</p>
+
+<p>
+The <i>tl;dr</i> is choosing projects that are mature, robust, well maintained, and in widespread use by <b>experienced</b> Common Lisp users because such project help promote a common vocabulary and common frame of reference.
+</p>
+</div>
+<div id="outline-container-org687fc2d" class="outline-3">
+<h3 id="org687fc2d">SBCL</h3>
+<div class="outline-text-3" id="text-org687fc2d">
+<p>
+There are two good reasons for using SBCL [Steel Bank Common Lisp]. t is the most straight forward from an open source perspective.
+</p>
+</div>
+</div>
+<div id="outline-container-org83077c8" class="outline-3">
+<h3 id="org83077c8">~/common-lisp</h3>
+<div class="outline-text-3" id="text-org83077c8">
 <p>
 Just put your files there like an *nix'er.
 </p>
 </div>
 </div>
-<div id="outline-container-org657f7a4" class="outline-2">
-<h2 id="org657f7a4">ASDF</h2>
-<div class="outline-text-2" id="text-org657f7a4">
+<div id="outline-container-org77ec850" class="outline-3">
+<h3 id="org77ec850">ASDF</h3>
+<div class="outline-text-3" id="text-org77ec850">
 <p>
 ASDF does one thing.
 </p>
 <div class="org-src-container">
-<pre class="src src-lisp" id="org8347509">(in-package :kludgecode)
+<pre class="src src-lisp" id="orge1260f8">(in-package :kludgecode)
 (def use-system (system-keyword)
   "Loads a system if locally available, otherwise trys to fetch it via quicklisp"
   (if (asdf:system-registered-p system-keyword)
@@ -309,14 +395,14 @@ ASDF does one thing.
 </div>
 </div>
 </div>
-<div id="outline-container-orga722a5a" class="outline-2">
-<h2 id="orga722a5a">Quicklisp</h2>
-<div class="outline-text-2" id="text-orga722a5a">
-</div><div id="outline-container-orgbee403b" class="outline-3">
-<h3 id="orgbee403b">Installation</h3>
-<div class="outline-text-3" id="text-orgbee403b">
+<div id="outline-container-orge79a8d1" class="outline-3">
+<h3 id="orge79a8d1">Quicklisp</h3>
+<div class="outline-text-3" id="text-orge79a8d1">
+</div><div id="outline-container-org4da9585" class="outline-4">
+<h4 id="org4da9585">Installation</h4>
+<div class="outline-text-4" id="text-org4da9585">
 <p>
-Quicklisp is a package manager for common Lispavailable at <a href="https://www.quicklisp.org/beta/"><a href="https://www.quicklisp.org/beta/">https://www.quicklisp.org/beta/</a></a>.
+Quicklisp is a package manager for common Lisp available at <a href="https://www.quicklisp.org/beta/"><a href="https://www.quicklisp.org/beta/">https://www.quicklisp.org/beta/</a></a>.
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">mkdir ~/common-lisp/quicklisp-install
@@ -333,45 +419,70 @@ gpg --verify quicklisp.lisp.asc quicklisp.lisp
 </div>
 </div>
 </div>
-<div id="outline-container-org38ab6f3" class="outline-3">
-<h3 id="org38ab6f3">System Repository</h3>
-<div class="outline-text-3" id="text-org38ab6f3">
+<div id="outline-container-orgadad1ad" class="outline-4">
+<h4 id="orgadad1ad">System Repository</h4>
+<div class="outline-text-4" id="text-orgadad1ad">
 <p>
 <a href="https://www.quicklisp.org/beta/releases.html">https://www.quicklisp.org/beta/releases.html</a>
 </p>
 </div>
 </div>
 </div>
+<div id="outline-container-org765d032" class="outline-3">
+<h3 id="org765d032">Emacs</h3>
+<div class="outline-text-3" id="text-org765d032">
+<p>
+There are two good reasons for using Emacs as the environment for developing Common Lisp:
+</p>
 
-<div id="outline-container-orgb5d7de4" class="outline-2">
-<h2 id="orgb5d7de4">Packages</h2>
+<ol class="org-ol">
+<li>It is pretty much the standard alternative to commerical tools.</li>
+<li>Emacs Lisp allows building tools to make your life easier, and while Emacs Lisp is not Common Lisp, it's still loveable (as are all lisps).</li>
+</ol>
 </div>
-<div id="outline-container-orge29d252" class="outline-2">
-<h2 id="orge29d252">SBCL</h2>
-<div class="outline-text-2" id="text-orge29d252">
+</div>
+</div>
+<div id="outline-container-org2decdbd" class="outline-2">
+<h2 id="org2decdbd">Testing</h2>
+<div class="outline-text-2" id="text-org2decdbd">
+</div><div id="outline-container-orgdf19b6c" class="outline-3">
+<h3 id="orgdf19b6c">lisp-unit</h3>
+<div class="outline-text-3" id="text-orgdf19b6c">
 <p>
-SBCL because it is the most straight forward from an open source perspective.
+As the name implies, <code>lisp-uint</code> is an Xunit inspired unit testing framework.
+It should be installed using <code>quicklisp</code>:
+</p>
+<pre class="example">
+(ql:quickload :lisp-unit)
+</pre>
+<p>
+Basic documentation is on github: <a href="https://github.com/OdonataResearchLLC/lisp-unit/wiki">https://github.com/OdonataResearchLLC/lisp-unit/wiki</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf5699a4" class="outline-2">
-<h2 id="orgf5699a4">Emacs</h2>
-<div class="outline-text-2" id="text-orgf5699a4">
+</div>
+<div id="outline-container-org7ccb868" class="outline-2">
+<h2 id="org7ccb868">Other Lisps</h2>
+</div>
+<div id="outline-container-org52fecb9" class="outline-2">
+<h2 id="org52fecb9">Signposts - Finding the Right Lisp</h2>
+<div class="outline-text-2" id="text-org52fecb9">
 <p>
-Emacs Lisp is a way of editing text.
+Finding the right Lisp because Common Lisp is not necessarily the right lisp for you.
 </p>
+
+<ul class="org-ul">
+<li>Racket for newbies and students and SICP.</li>
+<li>Emacs Lisp for a practical reason to learn lisp</li>
+<li>Clojure -&gt; Clojure from the ground up</li>
+<li>SBCL in Bash</li>
+</ul>
 </div>
-</div>
-<div id="outline-container-orgf37a3af" class="outline-2">
-<h2 id="orgf37a3af">Testing</h2>
-</div>
-<div id="outline-container-org38e5dbc" class="outline-2">
-<h2 id="org38e5dbc">Other Lisps</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: benrudgers</p>
-<p class="date">Created: 2017-03-26 Sun 13:02</p>
+<p class="date">Created: 2017-03-30 Thu 14:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
