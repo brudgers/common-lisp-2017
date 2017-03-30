@@ -1,5 +1,32 @@
 #+Title Just another Love Song: Common Lisp in 2017
 #+OPTIONS: num:nil ^:{}
+* Introduction
+One of my favorite programming essays is Peter Norvig's [[http://norvig.com/21-days.html][Teach Yourself Programming in Ten Years]].
+
+I first encountered Common Lisp in the early 1990's. I'd been using AutoLisp to enhance my CAD jockeying -- I'd taken up CAD as a way to get my hands on AutoCad to get my hands on AutoLisp. In the pre-commercial internet era, obtaining programming languages was non-trivial and required buying floppy disks in a shrink-wrapped box and there was no Borland Common Lisp. One day I broke down and purchased a thin and relatively expensive book, /Common Lisp & Artificial Intelligence/. I learned that AutoLisp was not full featured the first time I typed some interesting code...it might have involved macros and AutoLisp does not have them.
+
+In 2012, after a couple of decades pursuing architecture, I came back to Common Lisp. I googled and wound up downloading [[http://www.daansystems.com/lispide/][LispIDE]] from DaanSystems...in part because it looked simple and in part because I was on Windows and in part because Emacs looked scary compared to an IDE, but mostly because I didn't know any better (in the sense of inexperience rather than incorrectness). I chose [[http://clozure.com/clozure-cl.html][Clozure Common Lisp]] based on similar criteria.
+
+Sometime in that June, I ordered a used copy of Graham's [[http://www.paulgraham.com/acl.html][ANSI Common Lisp]] off of Amazon (Amazon was better for used books in those days and less good at video  downloads than it is today). I picked it because 'Hacker News' (and that's probably why I got part of the reason why I got back into Common Lisp). Once again I was reminded that Common Lisp is not AutoLisp. It's big and complex and computer sciencey (as are pretty much all programming languages). How much did I have to learn? This example on page eleven:
+#+BEGIN_SRC lisp :results none :tangle no
+  > (list 'my (+ 2 1) "Sons")
+  (MY 3 "Sons")
+#+END_SRC
+Caused me to write this marginalia [kindly, remember that AutoLisp did not have macros]:
+#+BEGIN_QUOTE
+Ok. So to grok this in its fullness the output of (list) is a function MY & the arguments 3 & "Sons"
+#+END_QUOTE
+
+At some point I installed [[http://lispcabinet.sourceforge.net/][LispCabinet]]. LispIDE was returning horrible error messages and throwing me into a debugger and exiting was done with numbers None of it looked like VisualStudio Express -- I did not know that that's how Common Lisp worked. It turns out that error messages in LispCabinet were even worse because they were the same /and/ I was in Emacs. To describe it as frustrating is accurate. But the silver lining was that LispCabinet was my introduction to Emacs and I could kind of see it's power (and in 2013 I took Dan Grossman's /Programing Languages/ course at Coursera *because* it used Emacs).
+
+Sometime in the next few months I had an idea for a project and decided to try [[http://racket-lang.org/][Racket]] because it is Easy-to-Use™. Downloaded and spun DrRacket up and wrote some =struct=s and ran into immutability. The error messages were lucid but WTF?. Reckoned I'd just read Racket's [[https://docs.racket-lang.org/reference/define-struct.html?q=struct#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._struct%29%29][Easy-to-Use™]] documentation for =struct=. Eventually I figured out how to use mutable =struct='s and moved forward kept until I felt like I needed mutabable lists. It was a natural stopping point. I looked at Clojure. Clojure is like Common Lisp in at least one very meaningful way. It was designed for working programmers and has the error messages to prove it. It's like Racket in that it's not easy to whip out imperative code.
+
+In April or May of 2013 I learn that come August Coursera will run a class in Racket based on [[http://www.ccs.neu.edu/home/matthias/HtDP2e/][How to Design Programs]] and taught by [[https://www.cs.ubc.ca/~gregor/][Gregor Kiczales]]. The first run of /Introduction to Systematic Program Design/ was awesome, MOOC's were hot and new and shiney, Kiczales was thoughtful and intellegent and there was a mix of people from around the world and incredible programmers among them...and in those days Coursera was much less a paid platform. Videos are avialable [[https://www.youtube.com/channel/UC7dEjIUwSxSNcW4PqNRQW8w/playlists][here]].
+
+At some point I came up with the idea of learning Common Lisp *eventually* -- after I had a better understanding of programming and Racket I would have enough background for it and Clojure There's a 2014 diversion into Clojure via /The Joy of Clojure/ wherin I try to do an Algorithms MOOC in Clojure but settle upon Racket. There's a 2015 diversion into ClojureScript which I realize there's no avoiding JavaScript.
+
+Somewhere along in 2016 I read a credible opinion that Peter Norvig's /Paradigms of Artificial Intelligence: Case Studies in Common Lisp/ is one of the best books on programming. At the time I was thinking about applying to the Recurse Center for Winter, 2017. Being bookish and unimaginative I decided that working through it would be the basis for my time there. I didn't get in, but I carried on anyway, and that's how I wound up learning Common Lisp in 2017.
+
 * An RTFM Language
 There's good news and bad news.
 
