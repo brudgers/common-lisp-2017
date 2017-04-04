@@ -37,14 +37,17 @@ Fortunately, Common Lisp is a standard and a description of the language is avai
 This section will go into terminology regarding multiple file organization in Common Lisp because it is a bit disorienting.
 ** Symbols and Packages
 *** Symbols
-In Common Lisp a symbol is not just a name. A symbol is a [[http://www.lispworks.com/documentation/lw70/CLHS/Body/t_symbol.htm][compound data structure]]. It might be useful to think about a symbol as the name of a pointer to a data structure...sometimes I think it is useful to think about everything in Common Lisp as a pointer.
-
-A symbol may be interned or uninterned. An interned symbol is interned because it is interned in a package.
+In Common Lisp a symbol is not just a name. A symbol is a [[http://www.lispworks.com/documentation/lw70/CLHS/Body/t_symbol.htm][compound data structure]]. It might be useful to think about a symbol as the name of a pointer to a data structure...sometimes I think it is useful to think about everything in Common Lisp as a pointer. A symbol may be interned or uninterned. An interned symbol is interned because it is interned in a package. A symbol may be exported or unexported from a package. See below.
 *** Packages
-A package is a compound data structure that contains symbols.
+A package is a compound data structure that contains symbols. 
 #+BEGIN_QUOTE
 Packages are collections of symbols that serve as namespaces. The parser recognizes symbols by looking up character sequences in the current package.
 #+END_QUOTE
+The default package is =cl-user=.
+*** Loading Files and packages
+A package can be loaded. The symbols package =A= explicitly exports are accessible with the =package:symbol= notation. Symbols in package =A= which are not exported are accessible with the =package::symbol= notation. Like objects in Python and not like objects in C++, privacy is a matter of convention rather than enforced by the language. Strict privacy is possible 
+*** Importing Packages
+A package can imported. When package =A= is imported into package =B= the symbols /exported/ from package =A= become directly accessible in package =B=. 
 ** 'Packages' and Systems
 * The Lisp Machine
 This section will go into the idea of Common Lisp as a way of /using/ a computer rather than a way of /programming/ a computer.
